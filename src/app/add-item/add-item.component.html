@@ -1,0 +1,42 @@
+<h2>Add item</h2>
+
+  <div class="panel panel-default" style="margin-bottom: 20px">
+    <div class="panel-heading">Book</div>
+    <div class="panel-body">
+        <label for="isbn">ISBN Number: </label>
+        <input [(ngModel)] = "isbn" type="text" maxlength="13" class="form-control" name="isbn" id="isbn" required>
+        <label for="name">Name </label>
+        <input [(ngModel)] = "name" type="text" class="form-control" name="name" id="name" required>
+        <label for="author">Author(s) </label>
+        <input [(ngModel)] = "author" type="text" class="form-control" name="author" id="author" required>
+        <label for="publicationDate">Publication Date </label>
+        <input [(ngModel)] = "publicationDate" type="date" class="form-control" name="publicationDate" id="publicationDate" required>
+        <label for="publisher">Publisher </label>
+        <input [(ngModel)] = "publisher" type="text" class="form-control" name="publisher" id="publisher" required>
+        <label for="pages">Pages </label>
+        <input [(ngModel)] = "pages" type="text" class="form-control" name="pages" id="pages" required>
+    </div>
+    <button (click)="sendInput('book')">Add Book</button>
+  </div>
+
+<div class="panel panel-default" style="margin-bottom: 20px">
+    <div class="panel-heading">DVD</div>
+    <div class="panel-body">
+      <label for="isbn">ISBN Number: </label>
+      <input [(ngModel)] = "isbn2" type="text" maxlength="13" class="form-control" name="isbn2" id="isbn2" required>
+      <label for="name">Name </label>
+      <input [(ngModel)] = "name2" type="text" class="form-control" name="name2" id="name2" required>
+      <label for="author">Producer(s) </label>
+      <input [(ngModel)] = "producer" type="text" class="form-control" name="producer" id="producer" required>
+      <label for="publicationDate">Publication Date </label>
+      <input [(ngModel)] = "publicationDate2" type="date" class="form-control" name="publicationDate2" id="publicationDate2" required>
+      <label for="languages">Languages </label>
+      <input [(ngModel)] = "languages" type="text" class="form-control" name="languages" id="languages" required>
+      <label for="subtitles">Subtitles </label>
+      <input [(ngModel)] = "subtitles" type="text" class="form-control" name="subtitles"  id="subtitles" required>
+      <label for="actors">Actors </label>
+      <input [(ngModel)] = "actors" type="text" class="form-control" name="actors"  id="actors" required>
+    </div>
+        <button (click)="sendInput('dvd')" >Add DVD</button>
+  </div>
+

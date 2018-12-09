@@ -1,0 +1,27 @@
+<h2>List of Items</h2>
+
+<div>
+  <h3>  Books : </h3>
+
+    <ul *ngFor = "let i of bookArr">
+      <li *ngIf = "isNull(i) == false" >
+        <div>
+          <p>Name: </p> <p>{{i.getName()}}</p>
+          <p>ISBN Number: </p> <p>{{i.getISBN()}}</p>
+          <p>Is available: </p> <p *ngIf="i.getIsBurrowed() == true">Yes</p> <p *ngIf="i.getIsBurrowed() == undefined">No</p>
+          <p *ngIf="i.getIsBurrowed() == true">Burrower: {{i.getBurrower()}}</p>
+        </div>
+      </li>
+    </ul>
+
+  <h3> DVDs: </h3>
+
+    <ul *ngFor = "let i of dvdArr">
+      <li *ngIf = "isNull(i) == false">
+        <div>
+          <p>Name: </p> <p>{{i.getName()}}</p>
+          <p>ISBN Number: </p>{{i.getISBN()}}<p></p>
+        </div>
+      </li>
+    </ul>
+</div>
