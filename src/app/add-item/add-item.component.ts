@@ -24,7 +24,7 @@ export class AddItemComponent implements OnInit {
   private pages;
   private regexp = "[^0-9]";
 
-  constructor(private wmin: WestminsterLibraryManager) { }
+  constructor(private wmin: WestminsterLibraryManager = new WestminsterLibraryManager()) { }
 
 
   ngOnInit() {
