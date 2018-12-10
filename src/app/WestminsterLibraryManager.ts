@@ -53,7 +53,7 @@ export class WestminsterLibraryManager implements LibraryManager{
         alert("Item with ISBN number already exists");
       }
       else{
-        let book:BookService;
+        let book:BookService = new BookService();
         book.setType(type);
         book.setName(name);
         book.setISBN(isbn);
@@ -73,8 +73,7 @@ export class WestminsterLibraryManager implements LibraryManager{
       alert("Item with ISBN number already exists");
     }
     else{
-      let dvd:DVDService;
-
+      let dvd:DVDService = new DVDService();
       dvd.setName(name);
       dvd.setISBN(isbn);
       dvd.setPublicationDate(publicationDate);
