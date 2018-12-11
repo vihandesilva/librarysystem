@@ -9,7 +9,7 @@ import { LibraryItemService } from '../library-item.service';
 })
 export class ListItemComponent implements OnInit {
 
-  constructor(private wmin: WestminsterLibraryManager) { }
+  constructor(private wmin: WestminsterLibraryManager = new WestminsterLibraryManager()) { }
 
   bookArr = this.wmin.books;
   dvdArr = this.wmin.dvds;
@@ -20,7 +20,7 @@ export class ListItemComponent implements OnInit {
 
   isNull(item: LibraryItemService){
 
-    if(item.getISBN() == "undefined" || item.getISBN() == null){
+    if(typeof item.getISBN() == undefined){
         return true;
     }
     else{

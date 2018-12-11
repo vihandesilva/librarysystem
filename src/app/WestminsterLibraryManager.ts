@@ -46,7 +46,7 @@ export class WestminsterLibraryManager implements LibraryManager{
     this._readers = value;
   }
 
-  public addBook(type, name, isbn, publicationDate, author, publisher, pages) {
+  public addBook(type:string, name:string, isbn:string, publicationDate:string, author:string, publisher:string, pages:string) {
     let exists = this.isExists(isbn);
 
       if(exists == true){
@@ -62,11 +62,12 @@ export class WestminsterLibraryManager implements LibraryManager{
         book.setPublisher(publisher);
         book.setPages(pages);
         this._books.push(book);
+        console.log(book);
         this.updateDataContainer()
       }
   }
 
-  public addDVD(type, name, isbn, publicationDate, languages, subtitles, actors, producers){
+  public addDVD(type:string, name:string, isbn:string, publicationDate:string, languages:string, subtitles:string, actors:string, producers:string){
     let exists = this.isExists(isbn);
 
     if(exists == true){
@@ -83,6 +84,7 @@ export class WestminsterLibraryManager implements LibraryManager{
       dvd.setProducer(producers);
       this._dvds.push(dvd);
       this.updateDataContainer();
+      console.log("DEBUG [wminManager]: "+ dvd);
     }
   }
 

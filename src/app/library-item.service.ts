@@ -4,14 +4,14 @@ import { DatetimeService } from './datetime.service';
 
 export class LibraryItemService {
 
-  private name;
-  private isbn;
-  private publicationDate;
-  private type;
-  private isBurrowed;
-  private burrower;
-  private burrowedDateTime;
-  private returnedDateTime;
+  private name:string;
+  private isbn:string;
+  private publicationDate:string;
+  private type:string;
+  private isBurrowed:boolean;
+  private burrower:string;
+  private burrowedDateTime:string;
+  private returnedDateTime:string;
 
   public getName(){
     return this.name;
@@ -57,8 +57,8 @@ export class LibraryItemService {
     return this.publicationDate;
   }
 
-  public setPublicationDate(value) {
-    this.publicationDate = value.toString();
+  public setPublicationDate(value: string) {
+    this.publicationDate = value;
   }
 
   public getBurrowedDate(){
