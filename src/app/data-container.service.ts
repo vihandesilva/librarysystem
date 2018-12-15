@@ -12,8 +12,28 @@ export class DataContainerService {
   private static _dvds:DVDService[] = new Array<DVDService>(50);
   private static _readers: ReaderService[] = new Array<ReaderService>();
 
-  constructor() { }
+  constructor() {
+  }
 
+
+  static initialize(){
+    this._books.forEach((book) =>{
+
+          book = new BookService();
+
+    })
+
+    this._dvds.forEach((dvd) =>{
+
+        dvd = new DVDService();
+
+    })
+
+    this._readers.forEach((reader) =>{
+      if(!(reader instanceof ReaderService))
+          reader = new ReaderService();
+    })
+  }
 
   static get books(): BookService[] {
     return this._books;

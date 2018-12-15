@@ -5,8 +5,27 @@
   <div class="col-xs-4">
     <label for="isbn">ISBN Number: </label>
     <input type="text" maxlength="13" [(ngModel)] = "isbn" class="form-control" name="isbn" id="isbn" placeholder="ISBN Number:">
-    <button name="isbn" (click)="checkISBN()">Check Availability</button>
+    <button name="isbn" (click)="isAvailable(isbn)">Check Availability</button>
   </div>
+</div>
+
+<div *ngIf = "isAvailable(isbn) == true">
+
+  <div>
+    <ul>
+      <li><p>ISBN Number: </p> <p>{{item.getISBN()}}</p> </li>
+      <li><p>Name of Library Item: </p> <p >{{item.getISBN()}}</p> </li>
+      <li><p>Type: </p> <p>{{item.getISBN()}}</p> </li>
+      <li><p>Publication Date: </p> <p>{{item.getISBN()}}</p> </li>
+    </ul>
+  </div>
+
+  <div>
+    <label for="burrower">Burrower: </label>
+    <input type="text" maxlength="50" [(ngModel)] = "burrower" class="form-control" name="burrower" id="burrower" placeholder="Burrower Name:">
+    <button name="isbn" (click)="burrowItem()">Burrow</button>
+  </div>
+
 </div>
 
 <div>

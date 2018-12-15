@@ -51,7 +51,7 @@ export class AddItemComponent implements OnInit {
 
   private checkISBN(isbn:string){
 
-        if(this.isbn.length >13 || this.isbn.length<13 || this.isbn.match(this.regexp) ){
+        if(isbn.length >13 || isbn.length<13 || isbn.match(this.regexp) ){
           alert("The ISBN Number that you have entered is incorrect. Please Re-enter");
           return false;
         }

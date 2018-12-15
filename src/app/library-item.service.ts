@@ -8,10 +8,14 @@ export class LibraryItemService {
   private isbn:string;
   private publicationDate:string;
   private type:string;
-  private isBurrowed:boolean;
+  private isBurrowed:boolean = false;
   private burrower:string;
   private burrowedDateTime:string;
   private returnedDateTime:string;
+
+  constructor(){
+
+  }
 
   public getName(){
     return this.name;

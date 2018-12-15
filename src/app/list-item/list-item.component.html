@@ -2,7 +2,7 @@
 
 <div>
   <h3>  Books : </h3>
-
+  <div *ngIf="dvdArr">
     <ul *ngFor = "let i of bookArr">
       <li *ngIf = "isNull(i) == false" >
         <div>
@@ -13,9 +13,9 @@
         </div>
       </li>
     </ul>
-
+  </div>
   <h3> DVDs: </h3>
-
+  <div *ngIf="dvdArr">
     <ul *ngFor = "let i of dvdArr">
       <li *ngIf = "isNull(i) == false">
         <div>
@@ -24,4 +24,5 @@
         </div>
       </li>
     </ul>
+  </div>
 </div>
