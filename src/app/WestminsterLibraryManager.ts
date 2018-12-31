@@ -253,7 +253,7 @@ export class WestminsterLibraryManager implements LibraryManager{
         return true;
       }
       else{
-        return true;
+        return false;
       }
   }
 
