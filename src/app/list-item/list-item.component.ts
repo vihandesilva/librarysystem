@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WestminsterLibraryManager } from '../WestminsterLibraryManager';
 import { LibraryItemService } from '../library-item.service';
-import {isNull} from "util";
 
 @Component({
   selector: 'app-list-item',

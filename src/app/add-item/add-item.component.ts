@@ -32,7 +32,7 @@ export class AddItemComponent implements OnInit {
 
 
 
-
+//Get input from HTML component and pass it to WestminsterLibraryManager
   public sendInput(type:string){
 
       if(type.toString().toLowerCase() == "book"){
@@ -48,7 +48,7 @@ export class AddItemComponent implements OnInit {
       }
     }
 
-
+//Validating ISBN number
   private checkISBN(isbn:string){
 
         if(isbn.length >13 || isbn.length<13 || isbn.match(this.regexp) ){

@@ -10,6 +10,8 @@ import {isNullOrUndefined} from "util";
 @Injectable({
   providedIn: 'root'
 })
+
+// This is the main logic class
 export class WestminsterLibraryManager implements LibraryManager{
 
   private _books:BookService[] = new Array<BookService>(100);
@@ -18,6 +20,8 @@ export class WestminsterLibraryManager implements LibraryManager{
   private static initialized:boolean = false;
 
   constructor() {
+    // Book and DVD arrays are stored in static class DataContainer.
+    // Data for this class is taken from DataContainer Service.
     this.books = DataContainerService.books;
     this.dvds = DataContainerService.dvds;
     this.readers = DataContainerService.readers;
@@ -29,7 +33,7 @@ export class WestminsterLibraryManager implements LibraryManager{
 
   }
 
-
+//Getters and Setters
   get books(): BookService[] {
     return this._books;
   }
@@ -53,6 +57,8 @@ export class WestminsterLibraryManager implements LibraryManager{
   set readers(value: ReaderService[]) {
     this._readers = value;
   }
+
+  // Methods which contain library operations
 
   public addBook(type:string, name:string, isbn:string, publicationDate:string, author:string, publisher:string, pages:string) {
     let exists = this.isExists(isbn);
@@ -96,6 +102,7 @@ export class WestminsterLibraryManager implements LibraryManager{
     }
   }
 
+  //Checks whether the library item with the given ISBN exists in Book and DVD arrays.
   private isExists(isbn:string){
     let exists = false;
 
@@ -118,6 +125,7 @@ export class WestminsterLibraryManager implements LibraryManager{
     return exists;
   }
 
+  //Gets details about the library item with the given ISBN. returns Book or DVD object
   public retrieveItem(isbn:string){
 
    var item:LibraryItemService = new LibraryItemService();
@@ -152,6 +160,7 @@ export class WestminsterLibraryManager implements LibraryManager{
      return item;
   }
 
+  // Checks whether isBurrowed is set to true in libary item
   public isAvailable(isbn:string){
     var available = false;
 
@@ -181,6 +190,7 @@ export class WestminsterLibraryManager implements LibraryManager{
     }
   }
 
+  // Removes item with the given ISBN from Book or DVD array.
   public deleteItem(isbn){
 
     let found:boolean;
@@ -215,6 +225,7 @@ export class WestminsterLibraryManager implements LibraryManager{
 
   }
 
+  // Sets isBurrowed of library item to false and adds burrower name and burrow date
   public burrowItem(isbn:string,burrower:string, burrowDate:string){
 
     var book: BookService =new BookService();
@@ -229,7 +240,7 @@ export class WestminsterLibraryManager implements LibraryManager{
               book.setBurrower(burrower);
               book.setBurrowedDate(burrowDate);
               book.setIsBurrowed(true);
-              alert("Item burrowed");
+              alert("Item burrowed. Burrower name: " + burrower+ ". ");
           }
         }
       })
@@ -247,6 +258,8 @@ export class WestminsterLibraryManager implements LibraryManager{
     }
   }
 
+
+  // Checks whether object is null to avoid exceptions
   public isNull(item:LibraryItemService){
       if(isNullOrUndefined(item)){
         console.log("ITEM: " + item);
