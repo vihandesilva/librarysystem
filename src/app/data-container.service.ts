@@ -8,8 +8,8 @@ import {ReaderService} from "./reader.service";
 })
 export class DataContainerService {
 
-  private static _books:BookService[] = new Array<BookService>(100);
-  private static _dvds:DVDService[] = new Array<DVDService>(50);
+  private static _books:BookService[] = new Array<BookService>();
+  private static _dvds:DVDService[] = new Array<DVDService>();
   private static _readers: ReaderService[] = new Array<ReaderService>();
 
   constructor() {
