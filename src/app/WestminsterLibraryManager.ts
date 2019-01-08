@@ -14,8 +14,8 @@ import {isNullOrUndefined} from "util";
 // This is the main logic class
 export class WestminsterLibraryManager implements LibraryManager{
 
-  private _books:BookService[] = new Array<BookService>(100);
-  private _dvds:DVDService[] = new Array<DVDService>(50);
+  private _books:BookService[] = new Array<BookService>();
+  private _dvds:DVDService[] = new Array<DVDService>();
   private _readers: ReaderService[] = new Array<ReaderService>();
   private static initialized:boolean = false;
 
@@ -261,7 +261,7 @@ export class WestminsterLibraryManager implements LibraryManager{
 
   // Checks whether object is null to avoid exceptions
   public isNull(item:LibraryItemService){
-      if(isNullOrUndefined(item)){
+      if(item == undefined){
         console.log("ITEM: " + item);
         return true;
       }
