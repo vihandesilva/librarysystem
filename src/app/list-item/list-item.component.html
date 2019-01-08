@@ -2,9 +2,9 @@
 
 <div>
   <h3>  Books : </h3>
-  <div *ngIf="dvdArr">
-    <ul *ngFor = "let i of bookArr">
-      <li *ngIf = "isNull(i) == false" >
+  <!-- <div *ngIf="bookArr"> -->
+    <ul>
+      <li *ngFor = "let i of bookArr">
         <div>
           <p>Name: </p> <p>{{i.getName()}}</p>
           <p>ISBN Number: </p> <p>{{i.getISBN()}}</p>
@@ -13,7 +13,7 @@
         </div>
       </li>
     </ul>
-  </div>
+  <!-- </div> -->
   <h3> DVDs: </h3>
   <div *ngIf="dvdArr">
     <ul *ngFor = "let i of dvdArr">
