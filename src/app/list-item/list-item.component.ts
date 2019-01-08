@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { WestminsterLibraryManager } from '../WestminsterLibraryManager';
 import { LibraryItemService } from '../library-item.service';
 
@@ -7,19 +7,28 @@ import { LibraryItemService } from '../library-item.service';
   templateUrl: './list-item.component.html',
   styleUrls: ['./list-item.component.css']
 })
-export class ListItemComponent implements OnInit {
+export class ListItemComponent implements OnInit,AfterViewInit {
   private wmin: WestminsterLibraryManager
 
-  constructor() { }
+  constructor(private chaangeditect:ChangeDetectorRef) { }
 
 
-  bookArr;
-  dvdArr;
+  bookArr=[];
+  dvdArr=[];
 
   ngOnInit() {
+  
+  }
+
+  ngAfterViewInit(){
     this.wmin = new WestminsterLibraryManager();
     this.bookArr = this.wmin.books;
     this.dvdArr = this.wmin.dvds;
+
+    this.chaangeditect.detectChanges();
+
+
+
   }
 
   isNull(item: LibraryItemService){
