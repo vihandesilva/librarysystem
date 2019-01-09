@@ -10,7 +10,7 @@ import { LibraryItemService } from '../library-item.service';
 export class ListItemComponent implements OnInit,AfterViewInit {
   private wmin: WestminsterLibraryManager
 
-  constructor(private chaangeditect:ChangeDetectorRef) { }
+  constructor(private changeditect:ChangeDetectorRef) { }
 
 
   bookArr=[];
@@ -25,7 +25,7 @@ export class ListItemComponent implements OnInit,AfterViewInit {
     this.bookArr = this.wmin.books;
     this.dvdArr = this.wmin.dvds;
 
-    this.chaangeditect.detectChanges();
+    this.changeditect.detectChanges();
 
 
 

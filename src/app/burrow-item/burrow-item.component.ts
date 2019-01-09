@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { BookService } from '../book.service';
 import {WestminsterLibraryManager} from "../WestminsterLibraryManager";
 import {DVDService} from "../dvd.service";
@@ -9,23 +9,32 @@ import {LibraryItemService} from "../library-item.service";
   templateUrl: './burrow-item.component.html',
   styleUrls: ['./burrow-item.component.css']
 })
-export class BurrowItemComponent implements OnInit {
+export class BurrowItemComponent implements OnInit,AfterViewInit {
 
-  private isbn:string;
+  isbn:string;
   private regexp = "[^0-9]";
   private wmin: WestminsterLibraryManager = new WestminsterLibraryManager();
   private bookArr = this.wmin.books;
   private dvdArr = this.wmin.dvds;
   private book: BookService = new BookService();
   private dvd: DVDService = new DVDService();
-  private item: LibraryItemService = new LibraryItemService();
+  item: LibraryItemService = new LibraryItemService();
   private isBurrowed:boolean;
-  private burrower:string;
+  burrower:string;
 
-  constructor() {}
+  constructor(private changedetect:ChangeDetectorRef) {}
 
   ngOnInit() {
   }
+
+  ngAfterViewInit(){
+        this.wmin = new WestminsterLibraryManager();
+        this.bookArr = this.wmin.books;
+        this.dvdArr = this.wmin.dvds;
+
+        this.changedetect.detectChanges();
+
+    }
 //Validating ISBN
   private checkISBN(){
     if(this.isbn.length >13 || this.isbn.length<13 ){
@@ -46,9 +55,7 @@ export class BurrowItemComponent implements OnInit {
 
       if(available == true){
           this.item = this.wmin.retrieveItem(isbn);
-      }
-
-      else{
+          console.log(this.item);
       }
       return available
   }

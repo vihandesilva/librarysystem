@@ -8,7 +8,7 @@
         <div>
           <p>Name: </p> <p>{{i.getName()}}</p>
           <p>ISBN Number: </p> <p>{{i.getISBN()}}</p>
-          <p>Is available: </p> <p *ngIf="i.getIsBurrowed() == true">Yes</p> <p *ngIf="i.getIsBurrowed() == undefined">No</p>
+          <p>Is available: </p> <p *ngIf="i.getIsBurrowed() == false">Yes</p> <p *ngIf="i.getIsBurrowed() == true">No</p>
           <p *ngIf="i.getIsBurrowed() == true">Burrower: {{i.getBurrower()}}</p>
         </div>
       </li>
