@@ -15,14 +15,14 @@
     </ul>
   <!-- </div> -->
   <h3> DVDs: </h3>
-  <div *ngIf="dvdArr">
-    <ul *ngFor = "let i of dvdArr">
-      <li *ngIf = "isNull(i) == false">
+    <ul>
+      <li *ngFor = "let i of dvdArr">
         <div>
           <p>Name: </p> <p>{{i.getName()}}</p>
           <p>ISBN Number: </p>{{i.getISBN()}}<p></p>
+          <p>Is available: </p> <p *ngIf="i.getIsBurrowed() == false">Yes</p> <p *ngIf="i.getIsBurrowed() == true">No</p>
+          <p *ngIf="i.getIsBurrowed() == true">Burrower: {{i.getBurrower()}}</p>
         </div>
       </li>
     </ul>
   </div>
-</div>
